@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Doctor";
+    Layout = "~/Views/Shared/_Doctor.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - Welcome Master</title>
+    <style>
+        body {
+            background-image: url(../../Assets/Img/Doctor1.jpg);
+            background-size: cover;
+        }
+        /*body h1{
+            color:white;
+        }*/
+        h1,h4 {
+            color: white;
+        }
+
+        .jumbotron {
+            background-color: grey;
+        }
+
+        .homebody ul li {
+            color: ghostwhite;
+        }
+
+        .homebody h4 {
+            color: crimson;
+            /*text-decoration:solid;*/
+            text-decoration-thickness: 50px;
+        }
+       
+        .homebody img {
+            height:150px;
+            width:300px;
+            margin-left:40px;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <h1> Welcome Doctor !!! </h1>
+    <h4> Have a Good Day</h4>
+    <div class="homebody">
+
+        <br />
+        <hr />
+        <h4>My Responsibility to Maintain the data of the Following </h4>
+        <ul>
+            <li>Doctor</li>
+            <li>Receptionist</li>
+            <li>lab Tecnition</li>
+            <li>Register Login Credientials</li>
+        </ul>
+        <h4>My Declaration </h4>
+        <ul>
+            <li>To Add date after only verification</li>
+            <li>No Manipluation of Fake entries</li>
+            <li>Register Login Credientials only to eligible professionals</li>
+        </ul>
+        <h4>My Roles </h4>
+        <ul>
+            <li>To Add/Delete/Update date of the Receptionist/Doctor/Laboratorion</li>
+            <li>No Maintain the Login credientials of the verified Professionals</li>
+        </ul>
+        <br/>
+        <img src="~/Assets/Img/Doctor_Thanks.jpg" />
+    </div>
+
+
+
+
+
+
+</body>
+
+
+</html>
+

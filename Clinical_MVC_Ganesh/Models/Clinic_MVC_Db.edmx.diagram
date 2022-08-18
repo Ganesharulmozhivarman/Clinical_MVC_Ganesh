@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="11bbdbfcc9764f1bbf1a66f567103dfa" Name="Diagram1">
+        <EntityTypeShape EntityType="ClinicMVCDbModel.DoctorTbl" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.LaboratorianTbl" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.LabTestTbl" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.PatientTbl" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.PrescriptionTbl" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.ReceptionistTbl" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_PrescriptionTbl_ToDoctorTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_LabTestTbl_ToLaboratorianTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_PrescriptionTbl_ToLabTestTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_PatientTbl_ToReceptionistTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_PrescriptionTbl_ToPatientTbl" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.TblLogin" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.AppointTbl" Width="1.5" PointX="5.25" PointY="11.625" />
+        <EntityTypeShape EntityType="ClinicMVCDbModel.ReportTbl" Width="1.5" PointX="5.25" PointY="7.875" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_AppointTbl_ToDoctorTbl" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_AppointTbl_ToPatientTbl" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_AppointTbl_ToReceptionist" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_ReportTbl_ToLaboratorianTbl" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_ReportTbl_ToLabTestTbl" />
+        <AssociationConnector Association="ClinicMVCDbModel.FK_ReportTbl_ToPatientTbl" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

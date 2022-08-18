@@ -1,0 +1,70 @@
+﻿@model Clinical_MVC_Ganesh.Models.LabTestTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Laboratorian.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/lab5.jpg);
+            background-size: cover;
+        }
+
+        table {
+            color: white;
+        }
+
+        .dl-horizontal {
+            color: white;
+        }
+
+        h2, h4 {
+            color: #f23557;
+        }
+    </style>
+</head>
+<body>
+    <h2>Details</h2>
+
+    <div>
+        <h4>LabTestTbl</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TestName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LaboratorianTbl.LabName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LaboratorianTbl.LabName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TestId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </body></html>

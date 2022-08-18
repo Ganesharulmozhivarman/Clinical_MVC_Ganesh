@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.PrescriptionTbl>
+
+@{
+    ViewBag.Title = "IndexS";
+    Layout = "~/Views/Shared/_Laboratorian.cshtml";
+}
+
+<h2>IndexS</h2>
+
+
+@using (Html.BeginForm("IndexS", "PrescriptionTbls", FormMethod.Get))
+            {
+                @Html.TextBox("searching")<input type="submit" value="Search" />
+            }
+<table class="table table-striped">
+    <thead>
+        <tr>Doctor</tr>
+        <tr>LabTest</tr>
+        <tr>Date</tr>
+    </thead>
+    @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="3" style="color:red">
+                        No match Found
+                    </td>
+                </tr>
+            }
+else
+            {
+                foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Doctor</td>
+                        <td>@item.LabTest</td>
+                        <td>@item.Date</td>
+                    </tr>
+                }
+            }
+</table>

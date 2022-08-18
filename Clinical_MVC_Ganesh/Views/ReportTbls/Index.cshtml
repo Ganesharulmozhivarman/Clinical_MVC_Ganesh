@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.ReportTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Laboratorian.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/lab5.jpg);
+            background-size: cover;
+        }
+
+        table {
+            color: white;
+        }
+
+        h2 {
+            color: #f23557;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Index</h2>
+    <p class="btn btn-default btn-success">
+        @Html.ActionLink("Create New", "Create", null, new { style = "color:white;" })
+    </p>
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestSummary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LaboratorianTbl.LabName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LabTestTbl.TestName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientTbl.PatName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestSummary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LaboratorianTbl.LabName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LabTestTbl.TestName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientTbl.PatName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReportId }, new { style = "color:lawngreen;font-weight: bold;" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReportId }, new { style = "color:lawngreen;font-weight: bold;" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReportId }, new { style = "color:lawngreen;font-weight: bold;" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body></html>

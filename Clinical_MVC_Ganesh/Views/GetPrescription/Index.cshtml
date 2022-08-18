@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.PrescriptionTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Laboratorian.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/lab5.jpg);
+            background-size: cover;
+        }
+
+        table,span {
+            color: white;
+        }
+
+        h2 {
+            color: #f23557;
+        }
+    </style>
+</head>
+<body>
+    <h2>Check Prescription</h2>
+
+    @using (Html.BeginForm("Index", "GetPrescription", FormMethod.Post))
+    {
+        <span> Start Date  </span><input type="date" name="start" required/>
+        <span> End Date  </span> <input type="date" name="end" required/>
+        <span>      | </span>
+        <input type="submit" value="Get Records" />
+
+    }
+
+
+
+
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicines)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorTbl.DocName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LabTestTbl.TestName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientTbl.PatName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Medicines)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorTbl.DocName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LabTestTbl.TestName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientTbl.PatName)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.PrescId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.PrescId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.PrescId })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</body></html>

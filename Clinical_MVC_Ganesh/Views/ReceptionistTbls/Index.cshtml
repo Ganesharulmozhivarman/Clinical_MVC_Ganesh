@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.ReceptionistTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/Admin1.jpg);
+            background-size: cover;
+        }
+        table{
+            color:white;
+        }
+        h2{
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Receptionist Details </h2>
+
+    <p class="btn btn-default btn-success">
+        @Html.ActionLink("Create New", "Create",null, new { style = "color:white;" })
+    </p>
+    <table class="table">   
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecPassword)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecAdd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecPassword)
+                </td>
+                <td>
+                    
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RecId }, new { style = "color:lawngreen;font-weight: bold;" })
+                    |
+                    
+                        @Html.ActionLink("Details", "Details", new { id = item.RecId }, new { style = "color:lawngreen;font-weight: bold;" })
+                     |
+                    
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RecId }, new { style = "color:lawngreen;font-weight: bold;" })
+                
+            </tr>
+        }
+
+    </table>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+﻿@model Clinical_MVC_Ganesh.Models.ReceptionistTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Doctor.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReceptionistTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecPassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,94 @@
+﻿@model Clinical_MVC_Ganesh.Models.ReceptionistTbl
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/Admin1.jpg);
+            background-size: cover;
+        }
+
+        table {
+            color: white;
+        }
+
+        .dl-horizontal {
+            color: white;
+        }
+
+        h2, h4 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>ReceptionistTbl</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RecName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RecName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RecEmail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RecEmail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RecAdd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RecAdd)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RecPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RecPhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RecPassword)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RecPassword)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+    </body></html>

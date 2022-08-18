@@ -1,0 +1,97 @@
+﻿@model Clinical_MVC_Ganesh.Models.TblLogin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .form-horizontal {
+            position: center;
+            margin: 150px 0px 0px 0px;
+            /*background-color: #ffb5b5;*/
+            padding: 50px 450px 50px 250px;
+            width: 100%;
+           /* opacity: 80%;*/
+        }
+        .body-content {
+            background-color: #ffb5b5;
+            background-image:url(../../Assets/Img/Homepage1.jpg);
+            background-size:cover;
+        }
+        .body-content h3{
+            color:white;
+            text-decoration-style:solid;
+            
+        }
+        .form-group{
+            text-decoration-style: solid;
+            text-decoration-color: white;
+        }   
+        .error{
+            color:white;
+            text-decoration:none;
+            position:center;
+        }
+        
+    </style>
+</head>
+<body class="body-content">
+    @using (Html.BeginForm("Login", "Account", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @*<h3> Login Page - ManMadhan Clinic </h3>*@
+
+    <div class="form-horizontal">
+        <hr />
+        <h3 style="position:center">Welcome - ManMadhan Clinic</h3>
+        <hr />
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MailID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MailID)
+                @Html.ValidationMessageFor(model => model.MailID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+        <div class="error"> 
+        <div class="col-md-2"></div>
+        @Html.ValidationSummary(true) </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Log In" class="btn btn-default btn-success" />
+                <div class="btn btn-default btn-warning">
+                    @Html.ActionLink("Go to HomePage", "HomePage","Home")
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    
+    }
+</body>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+</html>

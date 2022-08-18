@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.PatientTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Patient.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/Receptionist2.jpg);
+            background-size: cover;
+        }
+
+        table {
+            color: white;
+        }
+
+        h2 {
+            color: #f23557;
+        }
+    </style>
+</head>
+<body>
+    <h2>Index</h2>
+    <p class="btn btn-default btn-success">
+        @Html.ActionLink("Create New", "Create", null, new { style = "color:white;" })
+    </p>
+    <br />
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatGen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatDOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatAllegies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceptionistTbl.RecName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatGen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatDOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatAdd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatAllegies)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceptionistTbl.RecName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatId }, new { style = "color:lawngreen;font-weight: bold;" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PatId }, new { style = "color:lawngreen;font-weight: bold;" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatId }, new { style = "color:lawngreen;font-weight: bold;" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body></html>

@@ -1,0 +1,87 @@
+﻿@model Clinical_MVC_Ganesh.Models.ReportTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Laboratorian.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(../../Assets/Img/lab5.jpg);
+            background-size: cover;
+        }
+
+        table {
+            color: white;
+        }
+
+        .dl-horizontal {
+            color: white;
+        }
+
+        h2, h4 {
+            color: #f23557;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>ReportTbl</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TestDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestSummary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestSummary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LaboratorianTbl.LabName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LaboratorianTbl.LabName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LabTestTbl.TestName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LabTestTbl.TestName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientTbl.PatName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatientTbl.PatName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ReportId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body></html>

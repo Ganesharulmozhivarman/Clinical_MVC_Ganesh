@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.ReceptionistTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Doctor.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecAdd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecPassword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecAdd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecPassword)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecId })
+        </td>
+    </tr>
+}
+
+</table>

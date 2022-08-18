@@ -1,0 +1,151 @@
+﻿@model Clinical_MVC_Ganesh.Models.PatientTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Laboratorian.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+          
+          /*  background-image: url(../../Assets/Img/lab5.jpg);*/
+            background-size: cover;
+            background-color:black;
+        }
+
+        table {
+            color: white;
+        }
+
+        .dl-horizontal {
+            color: white;
+        }
+
+        h2, h4 {
+            color: #f23557;
+        }
+    </style>
+</head>
+<body>
+    <h2>Details</h2>
+
+    <div>
+        <h4>PatientTbl</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PatName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatPhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatGen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatGen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatDOB)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatDOB)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatAdd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatAdd)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatAllegies)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatAllegies)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReceptionistTbl.RecName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReceptionistTbl.RecName)
+            </dd>
+
+        </dl>
+    </div>
+    <h2>Laboratory Summary</h2>
+    <table class="table table-condensed table-responsive">
+        <tr>
+
+            <th>Test Name</th>
+            <th>Date</th>
+            <th>Test Report</th>
+            <th>Lab Name</th>
+            @*<th>Lab Cost</th>*@
+
+
+        </tr>
+
+        @foreach (var prescription in Model.ReportTbls)
+        {
+            <tr>
+                <td>
+                    <p>
+                        @prescription.LabTestTbl.TestName
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @prescription.TestDate
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @prescription.TestSummary
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @prescription.LaboratorianTbl.LabName
+                    </p>
+                </td>
+                @*<td>
+                        <p>
+                            @prescription.
+                        </p>
+                    </td>*@
+            </tr>
+        }
+
+
+
+    </table>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.PatId })*@ |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body></html>
