@@ -179,5 +179,37 @@ namespace Clinical_MVC_Ganesh.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PrescriptionTbl>("GetPresciption", mergeOption, startParameter, endParameter);
         }
+    
+        public virtual ObjectResult<SearchPatients_Result> SearchPatients(string patName)
+        {
+            var patNameParameter = patName != null ?
+                new ObjectParameter("PatName", patName) :
+                new ObjectParameter("PatName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SearchPatients_Result>("SearchPatients", patNameParameter);
+        }
+    
+        public virtual ObjectResult<PatientTbl> SearchPatients_Result(string patName)
+        {
+            var patNameParameter = patName != null ?
+                new ObjectParameter("PatName", patName) :
+                new ObjectParameter("PatName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PatientTbl>("SearchPatients_Result", patNameParameter);
+        }
+    
+        public virtual ObjectResult<PatientTbl> SearchPatients_Result(string patName, MergeOption mergeOption)
+        {
+            var patNameParameter = patName != null ?
+                new ObjectParameter("PatName", patName) :
+                new ObjectParameter("PatName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PatientTbl>("SearchPatients_Result", mergeOption, patNameParameter);
+        }
+    
+        public virtual ObjectResult<Revenue_from_Doctor_Result> Revenue_from_Doctor()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Revenue_from_Doctor_Result>("Revenue_from_Doctor");
+        }
     }
 }

@@ -11,8 +11,7 @@ namespace Clinical_MVC_Ganesh.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class DoctorTbl
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,16 +22,7 @@ namespace Clinical_MVC_Ganesh.Models
         }
     
         public int DocId { get; set; }
-        
         public string DocName { get; set; }
-
-        //[DataType(DataType.Currency)]
-        //[Range (1,9999999999)]
-        //[Display(Name = "Phone Number")]
-
-        //[Required(ErrorMessage = "Phone Number Required!")]
-        //[RegularExpression(@"^\(?([0-9]{10})\)$",
-        //           ErrorMessage = "Entered phone format is not valid.")]
         public string DocPhone { get; set; }
         public int DocExp { get; set; }
         public string DocSpec { get; set; }

@@ -62,6 +62,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -69,6 +72,7 @@
     <Reference Include="System.Runtime" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -139,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointTblsController.cs" />
+    <Compile Include="Controllers\DoctorRevenueController.cs" />
     <Compile Include="Controllers\DoctorTblsController.cs" />
     <Compile Include="Controllers\GetPrescriptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -150,6 +155,7 @@
     <Compile Include="Controllers\PrescriptionTblsController.cs" />
     <Compile Include="Controllers\ReceptionistTblsController.cs" />
     <Compile Include="Controllers\ReportTblsController.cs" />
+    <Compile Include="Controllers\SearchPatientsController.cs" />
     <Compile Include="Controllers\TblLoginsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,6 +211,12 @@
     <Compile Include="Models\ReportTbl.cs">
       <DependentUpon>Clinic_MVC_Db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Revenue_from_Doctor_Result.cs">
+      <DependentUpon>Clinic_MVC_Db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchPatients_Result.cs">
+      <DependentUpon>Clinic_MVC_Db.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Clinic_MVC_Db.tt</DependentUpon>
     </Compile>
@@ -226,6 +238,7 @@
     <Content Include="Assets\Img\Admin1.jpg" />
     <Content Include="Assets\Img\Doctor.jpg" />
     <Content Include="Assets\Img\Doctor1.jpg" />
+    <Content Include="Assets\Img\Doctors.jpg" />
     <Content Include="Assets\Img\Doctor_Thanks.jpg" />
     <Content Include="Assets\Img\HomePage.jpg" />
     <Content Include="Assets\Img\Homepage1.jpg" />
@@ -238,9 +251,13 @@
     <Content Include="Assets\Img\lab6.jpg" />
     <Content Include="Assets\Img\Operation.jpg" />
     <Content Include="Assets\Img\Logo.jpg" />
+    <Content Include="Assets\Img\RECEP.jpg" />
     <Content Include="Assets\Img\Receptionist.jpg" />
     <Content Include="Assets\Img\Receptionist1.jpg" />
     <Content Include="Assets\Img\Receptionist2.jpg" />
+    <Content Include="Assets\Img\Skin.png" />
+    <Content Include="Assets\Img\SkinCareLetterHead.png" />
+    <Content Include="Assets\Img\SkinCareLetterHead1.png" />
     <Content Include="Assets\Img\vaccination.jpg" />
     <Content Include="Assets\Img\Vaccination1.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -248,6 +265,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Project_Details.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -261,6 +279,10 @@
       <DependentUpon>Clinic_MVC_Db.edmx</DependentUpon>
       <LastGenOutput>Clinic_MVC_Db.cs</LastGenOutput>
     </Content>
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Clinic_MVC_Db.edmx">
@@ -270,6 +292,7 @@
     <Content Include="Models\Clinic_MVC_Db.edmx.diagram">
       <DependentUpon>Clinic_MVC_Db.edmx</DependentUpon>
     </Content>
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -317,11 +340,6 @@
     <Content Include="Views\PatientTbls\Edit.cshtml" />
     <Content Include="Views\PatientTbls\Index.cshtml" />
     <Content Include="Views\Shared\_Doctor.cshtml" />
-    <Content Include="Views\ReceptionistTbls1\Create.cshtml" />
-    <Content Include="Views\ReceptionistTbls1\Delete.cshtml" />
-    <Content Include="Views\ReceptionistTbls1\Details.cshtml" />
-    <Content Include="Views\ReceptionistTbls1\Edit.cshtml" />
-    <Content Include="Views\ReceptionistTbls1\Index.cshtml" />
     <Content Include="Views\PrescriptionTbls\Create.cshtml" />
     <Content Include="Views\PrescriptionTbls\Delete.cshtml" />
     <Content Include="Views\PrescriptionTbls\Details.cshtml" />
@@ -368,10 +386,14 @@
     <Content Include="Views\PrescriptionTbls\IndexS.cshtml" />
     <Content Include="Views\GetPrescription\Index.cshtml" />
     <Content Include="Views\LaboratorianTbls\RenderMenu.cshtml" />
-    <Content Include="Views\Shared\getLaborations.cshtml" />
+    <Content Include="Views\SearchPatients\Index.cshtml" />
+    <Content Include="Views\SearchPatients\IndexById.cshtml" />
+    <Content Include="Views\Shared\_LetterHead.cshtml" />
+    <Content Include="Views\DoctorRevenue\DoctorRevenue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

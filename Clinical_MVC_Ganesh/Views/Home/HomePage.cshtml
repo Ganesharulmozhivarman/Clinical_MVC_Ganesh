@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Assets/HomeStyle.css" rel="stylesheet" />
-    <title>@*@ViewBag.Title -*@ ManMadhan Clinic </title>
+    <title>@ViewBag.Title - Skin Care Clinic </title>
 
     @*--using Font Awesome --*@
 
@@ -22,29 +22,20 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+  
     <div class="navbar navbar-fixed-top">
+        <marquee bgcolor="#ffb5b5" width="100%" height="30" loop="10" direction="right" scrollamount="10" onMouseOver="this.stop()" onMouseOut="this.start()">
+            <h4>Welcome Everyone!!! For Appointments Please Contact 1800-000-000 only Limited visits Allowed per day!!! Only Telephonic Appointments Allowed</h4>
+        </marquee>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    @*<span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>*@
                 </button>
                 @Html.ActionLink("Home", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+             
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                    @*<li>@Html.ActionLink("Receptionist", "Index", "ReceptionistTbls")</li>
-                        <li>@Html.ActionLink("Doctors", "Index", "DoctorTbls")</li>
-                        <li>@Html.ActionLink("Laboratorian", "Index", "LaboratorianTbls")</li>
-                        <li>@Html.ActionLink("Register User", "Index", "TblLogins")</li>*@
-
-                    @*<li>@Html.ActionLink("Patient", "Index", "PatientTbls")</li>*@
-                    @*<li>@Html.ActionLink("Prescrition", "Index", "PrescriptionTbls")</li>
-                        <li>@Html.ActionLink("Lab Test", "Index", "LabTestTbls")</li>*@
                     <li>@Html.ActionLink("Log In", "Login", "Account")</li>
 
                 </ul>
@@ -52,18 +43,17 @@
         </div>
     </div>
 
-    <div class="row" style="background-image:url(../../Assets/Img/Homepage2.jpg);height:500px;background-size:cover;background-position:center">
+    <div class="row" style="background-image:url(../../Assets/Img/Homepage2.jpg);height:600px;background-size:cover;background-position:revert">
 
         <div class="hero">
             <div class="col-md-2"></div>
             <div class="col-md-5">
                 <div class="row" style="height:100px"> </div>
+                <h2> Your Skin Care is our Responsibility</h2>
                 <h2> Your health is our only Priority</h2>
-                <h2> Your health is our only Priority</h2>
-                <p class="h6"> Our Clinic has been created in 2022 by the Ganesh and Madhan</p>
+                
                 <p class="h6"> Our Clinic has been created in 2022 by the Ganesh and Madhan</p><br />
-                @*<button class="btn btn-primary">Reach Us</button><br /><br />
-                    <a class="nav-link" href="../Login.aspx"> <button class="btn btn-light border-primary text-primary">Contact Us</button></a>*@
+                
             </div>
         </div>
     </div>
@@ -82,7 +72,7 @@
 
                 @*<button type="button">Let's Talk</button>*@
             </div>
-            
+
         </div>
     </section>
 

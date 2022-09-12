@@ -15,6 +15,7 @@ namespace Clinical_MVC_Ganesh.Models
 
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^(?:male|Male|female|Female)$", ErrorMessage = "Invalid Gender(Enter Only Male or Female)")]
         [Required]
         public string RecEmail { get; set; }
 
@@ -22,8 +23,10 @@ namespace Clinical_MVC_Ganesh.Models
         [Required]
         public string RecAdd { get; set; }
 
-        [Display(Name = "Phone Number")]
-        [Required]
+        [Display(Name = "Mobile Number:")]
+        [Required(ErrorMessage = "Mobile Number is required.")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+
         public string RecPhone { get; set; }
 
         [Display(Name = "Password")]

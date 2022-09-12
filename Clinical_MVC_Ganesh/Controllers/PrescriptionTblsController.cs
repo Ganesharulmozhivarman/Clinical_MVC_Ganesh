@@ -12,6 +12,7 @@ using Clinical_MVC_Ganesh.Models;
 
 namespace Clinical_MVC_Ganesh.Controllers
 {
+    [Authorize(Roles = "Doctor")]
     public class PrescriptionTblsController : Controller
     {
         private ClinicMVCDbEntities db = new ClinicMVCDbEntities();

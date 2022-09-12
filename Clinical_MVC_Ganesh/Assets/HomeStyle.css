@@ -1,6 +1,7 @@
 ﻿body {
 }
 
+
 .hero h2 {
     color: #45171d;
 }
@@ -31,11 +32,13 @@
     width: 100%;
     padding: 50px 0px;
     background-color: #ffb5b5;
+    height:600px;
 }
 
 .row {
     width: 100%;
-    padding: 50px 0px;
+    padding: 60px 0px 30px 0px;
+    margin:10px 0px 0px 0px;
     /*background-color: #f76b8a;*/
 }
 
@@ -83,10 +86,10 @@
 
 .title h2 {
     color: #45171d;
-    font-size: 75px;
+    font-size: 50px;
     width: 1130px;
     margin: 30px auto;
-    text-align: center;
+    text-align:center;
 }
 
 .box {

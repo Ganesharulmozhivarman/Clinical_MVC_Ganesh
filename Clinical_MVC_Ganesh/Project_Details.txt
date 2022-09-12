@@ -1,0 +1,81 @@
+﻿
+
+	Admin Module
+
+			Navbar --  [Layout - Views/Shared/_Layout]
+
+		Controller Used-
+	
+			DoctorTbls 
+				CRUD Operations of Doctor Details
+			ReceptionistTbls
+				CRUD Operations of Receptionist Details
+			LaboratorianTbls
+				CRUD Operations of Laboratorian Details
+			TblLogins
+				CRUD Operations of Login Details
+				Based on the id and Password Appropriate Doctors/Laboratorian/Receptionist Will be Able to Login
+
+	Receptionist Module 
+
+			Navbar --  [Layout - Views/Shared/_Patients]
+
+		Controller Used-
+	
+			PatientTbls 
+				CRUD Operations of Patients Details
+			AppointTbls
+				CRUD Operations of Appointment Details
+			SearchPatients
+				To Search the Patients Data and can print the Medical Summary of the Specific Patients
+
+	Doctor Module 
+			
+			Navbar --  [Layout - Views/Shared/_Doctor]
+
+		Controller Used-
+	
+			PrescriptionTbls 
+				Create/View the details of Prescriptions Details
+			PatientsPublic
+				To See the Medical Summary Details of Patients
+
+	Laboratorian Module
+
+			Navbar --  [Layout - Views/Shared/_Laboratorian]
+
+		Controller Used-
+	
+			LabTestTbls 
+				Create and Edit Operations of LabTest Details
+			ReportTbls
+				CRUD Operations of Reports Details
+			PatientLab
+				To See the Lab Summary Details of Patients
+			GetPrescriptions
+				To Search the Prescription Detials Between Dates
+
+
+
+	Stored Procedure Used 
+			
+			1)	Receptionist Module	
+				-Stored Procedure Name - SearchPatients
+				-Used in Controller - SearchPatients
+
+			2)	Laboratorian Module
+				-Stored Procedure Name - GetPrescriptions
+				-Used in Controller - GetPrescriptions
+
+	Features Added in Receptionist Module 
+
+			1)	-Receptionist can print Patient Summary in Pdf Form 
+				-Using Rotativa
+				
+	Things Working on 
+
+			- Admin Can see the Doctors Revenue 
+
+
+
+

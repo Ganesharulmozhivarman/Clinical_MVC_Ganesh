@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace Clinical_MVC_Ganesh.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         // GET: Account
@@ -21,6 +22,7 @@ namespace Clinical_MVC_Ganesh.Controllers
         {
             return View();
         }
+
         [HttpPost]
 
         public ActionResult Login(TblLogin model, string returnUrl)
@@ -38,35 +40,12 @@ namespace Clinical_MVC_Ganesh.Controllers
                     if (dataItem.Role is "Admin")
 
                     {
-
-
                         return RedirectToAction("Index","Home");
-
-
                     }
 
                     else  if (dataItem.Role is "Doctor")
 
-                    {
-
-                        //if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        //         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\") && dataItem.Role is "Doctor")
-                        //{
-
-                        //    return View("index", "DoctorTbls");
-
-
-                        //}
-
-                        //else if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        //         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\") && dataItem.Role is "Receptionist")
-
-                        //{
-
-                        //    return View("Index", "ReceptionistTbls");
-
-                        //}
-
+                    { 
                         return RedirectToAction("Doctor", "Home");
                     }
                     else if (dataItem.Role is "Receptionist")          //Completed 
@@ -79,41 +58,30 @@ namespace Clinical_MVC_Ganesh.Controllers
                         return RedirectToAction("Laboratorian", "Home");
 
                     }
-
-
                     else
                     {
                         ModelState.AddModelError("", "Invalid user/pass");
                         return View();
                     }
-
                 }
-
                 else
                 {
                     ModelState.AddModelError("", "Invalid user/pass");
                     return View();
                 }
-
             }
-
-
-            catch (Exception ex)
+            catch (Exception)
             {
                 ModelState.AddModelError("", "Invalid User");
                 return View();
             }
         }
 
-        
-
-
-
         [Authorize]
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login", "Home");
+            return RedirectToAction("Login", "Account");
         }
     }
 }

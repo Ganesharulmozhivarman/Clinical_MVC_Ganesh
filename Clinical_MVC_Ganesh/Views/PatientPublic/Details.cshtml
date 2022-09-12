@@ -8,12 +8,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Skin Care Clinic</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
         body {
-            /*background-image: url(../../Assets/Img/Logo.jpg);*/
+            
             background-color:black;
             background-size: cover;
         }
@@ -151,7 +151,7 @@
                 <th>Date</th>
                 <th>Test Report</th>
                 <th>Lab Name</th>
-                @*<th>Lab Cost</th>*@
+                
 
 
             </tr>
@@ -179,11 +179,7 @@
                             @prescription.LaboratorianTbl.LabName
                         </p>
                     </td>
-                    @*<td>
-                        <p>
-                            @prescription.
-                        </p>
-                    </td>*@
+                   
                 </tr>
             }
 
@@ -191,40 +187,7 @@
 
         </table>
 
-        @*<h2>Patient Summary</h2>
-        <table class="table table-condensed table-responsive">
-            <tr>
 
-                <th>Medicines</th>
-                <th>Cost</th>
-                <th>Doctor Id</th>
-
-            </tr>
-
-            @foreach (var Labdetails in Model.PrescriptionTbls)
-            {
-                <tr>
-                    <td>
-                        <p>
-                            @prescription.Medicines
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            @prescription.Cost
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            @prescription.DoctorTbl.DocName
-                        </p>
-                    </td>
-                </tr>
-            }
-
-
-
-        </table>*@
 
 
     </div>

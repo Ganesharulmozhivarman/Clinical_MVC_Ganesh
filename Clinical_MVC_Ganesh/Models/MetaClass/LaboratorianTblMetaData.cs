@@ -22,13 +22,16 @@ namespace Clinical_MVC_Ganesh.Models
         [DataType(DataType.Password)]
         [Required]
         public string LabPass { get; set; }
-        [Display(Name = "Phone Number")]
-        [Required]
+        [Display(Name = "Mobile Number:")]
+        [Required(ErrorMessage = "Mobile Number is required.")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+
         public string LabPhone { get; set; }
         [Display(Name = "Address")]
         [Required]
         public string LabAddress { get; set; }
         [Display(Name = "Gender")]
+        [RegularExpression(@"^(?:male|Male|female|Female)$", ErrorMessage = "Invalid Gender(Enter Only Male or Female)")]
         [Required]
         public string LabGen { get; set; }
     }

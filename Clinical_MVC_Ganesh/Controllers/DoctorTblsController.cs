@@ -10,6 +10,7 @@ using Clinical_MVC_Ganesh.Models;
 
 namespace Clinical_MVC_Ganesh.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DoctorTblsController : Controller
     {
         private ClinicMVCDbEntities db = new ClinicMVCDbEntities();
@@ -114,6 +115,7 @@ namespace Clinical_MVC_Ganesh.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+       
 
         protected override void Dispose(bool disposing)
         {

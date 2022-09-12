@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Clinical_MVC_Ganesh.Models.ReportTbl>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Reports";
     Layout = "~/Views/Shared/_Laboratorian.cshtml";
 }
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title- Skin Care</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
@@ -22,13 +22,13 @@
         }
 
         h2 {
-            color: #f23557;
+            color: #77529e;
         }
     </style>
 </head>
 <body>
 
-    <h2>Index</h2>
+    <h2>Reports Details</h2>
     <p class="btn btn-default btn-success">
         @Html.ActionLink("Create New", "Create", null, new { style = "color:white;" })
     </p>

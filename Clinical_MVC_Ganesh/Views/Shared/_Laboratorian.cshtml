@@ -14,7 +14,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <style>
         .navbar {
-            background-color: #f23557;
+            background-color: #ffc93c;
         }
     </style>
 </head>
@@ -37,7 +37,8 @@
                     <li>@Html.ActionLink("Reports", "Index", "ReportTbls")</li>
                     <li>@Html.ActionLink("Patient", "Index", "PatientLab")</li>
                     <li>@Html.ActionLink("Prescriptions", "Index", "GetPrescription")</li>
-                    <li>@Html.ActionLink("Log Out", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Log Out", "SignOut", "Account")</li>
+
 
                 </ul>
             </div>
@@ -47,7 +48,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Skin Care Clinic</p>
         </footer>
     </div>
 

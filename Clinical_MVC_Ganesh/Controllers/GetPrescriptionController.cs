@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Clinical_MVC_Ganesh.Controllers
 {
+    [Authorize(Roles = "Laboratorian")]
     public class GetPrescriptionController : Controller
     {
         private ClinicMVCDbEntities db = new ClinicMVCDbEntities();

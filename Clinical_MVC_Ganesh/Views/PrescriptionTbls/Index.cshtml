@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Skin Care Clinic</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h2>Index</h2>
+    <h2>Prescriptions Details</h2>
     <p class="btn btn-default btn-success">
         @Html.ActionLink("Create New", "Create", null, new { style = "color:white;" })
     </p>
@@ -80,9 +80,9 @@
                     @Html.DisplayFor(modelItem => item.PatientTbl.PatName)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PrescId }, new { style = "color:lawngreen;font-weight: bold;" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.PrescId }, new { style = "color:lawngreen;font-weight: bold;" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PrescId }, new { style = "color:lawngreen;font-weight: bold;" })
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.PrescId }, new { style = "color:lawngreen;font-weight: bold;" }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.PrescId }, new { style = "color:lawngreen;font-weight: bold;" }) @*|*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.PrescId }, new { style = "color:lawngreen;font-weight: bold;" })*@
                 </td>
             </tr>
         }

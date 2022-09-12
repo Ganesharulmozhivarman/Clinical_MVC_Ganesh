@@ -117,44 +117,10 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_AppointTbl_ToDoctorTbl">
-          <End Role="DoctorTbl" Type="Self.DoctorTbl" Multiplicity="1" />
-          <End Role="AppointTbl" Type="Self.AppointTbl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DoctorTbl">
-              <PropertyRef Name="DocId" />
-            </Principal>
-            <Dependent Role="AppointTbl">
-              <PropertyRef Name="Doctor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppointTbl_ToPatientTbl">
-          <End Role="PatientTbl" Type="Self.PatientTbl" Multiplicity="1" />
-          <End Role="AppointTbl" Type="Self.AppointTbl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PatientTbl">
-              <PropertyRef Name="PatId" />
-            </Principal>
-            <Dependent Role="AppointTbl">
-              <PropertyRef Name="Patient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AppointTbl_ToReceptionist">
-          <End Role="ReceptionistTbl" Type="Self.ReceptionistTbl" Multiplicity="1" />
-          <End Role="AppointTbl" Type="Self.AppointTbl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReceptionistTbl">
-              <PropertyRef Name="RecId" />
-            </Principal>
-            <Dependent Role="AppointTbl">
-              <PropertyRef Name="Receptionist" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LabTestTbl_ToLaboratorianTbl">
-          <End Role="LaboratorianTbl" Type="Self.LaboratorianTbl" Multiplicity="1" />
+          <End Role="LaboratorianTbl" Type="Self.LaboratorianTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LabTestTbl" Type="Self.LabTestTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LaboratorianTbl">
@@ -166,7 +132,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PatientTbl_ToReceptionistTbl">
-          <End Role="ReceptionistTbl" Type="Self.ReceptionistTbl" Multiplicity="1" />
+          <End Role="ReceptionistTbl" Type="Self.ReceptionistTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PatientTbl" Type="Self.PatientTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ReceptionistTbl">
@@ -178,7 +146,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrescriptionTbl_ToDoctorTbl">
-          <End Role="DoctorTbl" Type="Self.DoctorTbl" Multiplicity="1" />
+          <End Role="DoctorTbl" Type="Self.DoctorTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PrescriptionTbl" Type="Self.PrescriptionTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DoctorTbl">
@@ -190,7 +160,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrescriptionTbl_ToLabTestTbl">
-          <End Role="LabTestTbl" Type="Self.LabTestTbl" Multiplicity="1" />
+          <End Role="LabTestTbl" Type="Self.LabTestTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PrescriptionTbl" Type="Self.PrescriptionTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LabTestTbl">
@@ -202,7 +174,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrescriptionTbl_ToPatientTbl">
-          <End Role="PatientTbl" Type="Self.PatientTbl" Multiplicity="1" />
+          <End Role="PatientTbl" Type="Self.PatientTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PrescriptionTbl" Type="Self.PrescriptionTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PatientTbl">
@@ -213,8 +187,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReportTbl_ToLaboratorianTbl">
-          <End Role="LaboratorianTbl" Type="Self.LaboratorianTbl" Multiplicity="1" />
+        <Association Name="FK_ReportTbl_ToLaboratorian">
+          <End Role="LaboratorianTbl" Type="Self.LaboratorianTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ReportTbl" Type="Self.ReportTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LaboratorianTbl">
@@ -238,7 +214,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReportTbl_ToPatientTbl">
-          <End Role="PatientTbl" Type="Self.PatientTbl" Multiplicity="1" />
+          <End Role="PatientTbl" Type="Self.PatientTbl" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ReportTbl" Type="Self.ReportTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PatientTbl">
@@ -253,6 +231,10 @@
         <Function Name="GetPrescrition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="start" Type="datetime" Mode="In" />
           <Parameter Name="end" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Revenue_from_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SearchPatients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PatName" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -295,18 +277,6 @@
           <EntitySet Name="ReportTbl" EntityType="Self.ReportTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLogin" EntityType="Self.TblLogin" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AppointTbl_ToDoctorTbl" Association="Self.FK_AppointTbl_ToDoctorTbl">
-            <End Role="DoctorTbl" EntitySet="DoctorTbl" />
-            <End Role="AppointTbl" EntitySet="AppointTbl" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppointTbl_ToPatientTbl" Association="Self.FK_AppointTbl_ToPatientTbl">
-            <End Role="PatientTbl" EntitySet="PatientTbl" />
-            <End Role="AppointTbl" EntitySet="AppointTbl" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AppointTbl_ToReceptionist" Association="Self.FK_AppointTbl_ToReceptionist">
-            <End Role="ReceptionistTbl" EntitySet="ReceptionistTbl" />
-            <End Role="AppointTbl" EntitySet="AppointTbl" />
-          </AssociationSet>
           <AssociationSet Name="FK_LabTestTbl_ToLaboratorianTbl" Association="Self.FK_LabTestTbl_ToLaboratorianTbl">
             <End Role="LaboratorianTbl" EntitySet="LaboratorianTbl" />
             <End Role="LabTestTbl" EntitySet="LabTestTbl" />
@@ -327,7 +297,7 @@
             <End Role="PatientTbl" EntitySet="PatientTbl" />
             <End Role="PrescriptionTbl" EntitySet="PrescriptionTbl" />
           </AssociationSet>
-          <AssociationSet Name="FK_ReportTbl_ToLaboratorianTbl" Association="Self.FK_ReportTbl_ToLaboratorianTbl">
+          <AssociationSet Name="FK_ReportTbl_ToLaboratorian" Association="Self.FK_ReportTbl_ToLaboratorian">
             <End Role="LaboratorianTbl" EntitySet="LaboratorianTbl" />
             <End Role="ReportTbl" EntitySet="ReportTbl" />
           </AssociationSet>
@@ -595,6 +565,13 @@
             <Parameter Name="start" Mode="In" Type="DateTime" />
             <Parameter Name="end" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="SearchPatients" ReturnType="Collection(ClinicMVCDbModel.SearchPatients_Result)">
+          <Parameter Name="PatName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchPatients_Result" EntitySet="PatientTbls" ReturnType="Collection(ClinicMVCDbModel.PatientTbl)">
+          <Parameter Name="PatName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Revenue_from_Doctor" ReturnType="Collection(ClinicMVCDbModel.Revenue_from_Doctor_Result)" />
         </EntityContainer>
         <EntityType Name="TblLogin">
           <Key>
@@ -723,6 +700,25 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SearchPatients_Result">
+          <Property Type="Int32" Name="PatId" Nullable="false" />
+          <Property Type="String" Name="PatName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PatPhone" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PatGen" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="PatDOB" Nullable="false" />
+          <Property Type="String" Name="PatAdd" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PatAllegies" Nullable="false" />
+          <Property Type="Int32" Name="AddBy" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Revenue_from_Doctor_Result">
+          <Property Type="Int32" Name="PrescId" Nullable="false" />
+          <Property Type="Int32" Name="Doctor" Nullable="false" />
+          <Property Type="Int32" Name="Patient" Nullable="false" />
+          <Property Type="String" Name="Medicines" Nullable="false" />
+          <Property Type="Int32" Name="LabTest" Nullable="false" />
+          <Property Type="Int32" Name="Cost" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -890,6 +886,34 @@
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ClinicMVCDbModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ClinicMVCDbModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="GetPresciption" FunctionName="ClinicMVCDbModel.Store.GetPrescrition" />
+          <FunctionImportMapping FunctionImportName="SearchPatients" FunctionName="ClinicMVCDbModel.Store.SearchPatients">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClinicMVCDbModel.SearchPatients_Result">
+                <ScalarProperty Name="PatId" ColumnName="PatId" />
+                <ScalarProperty Name="PatName" ColumnName="PatName" />
+                <ScalarProperty Name="PatPhone" ColumnName="PatPhone" />
+                <ScalarProperty Name="PatGen" ColumnName="PatGen" />
+                <ScalarProperty Name="PatDOB" ColumnName="PatDOB" />
+                <ScalarProperty Name="PatAdd" ColumnName="PatAdd" />
+                <ScalarProperty Name="PatAllegies" ColumnName="PatAllegies" />
+                <ScalarProperty Name="AddBy" ColumnName="AddBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchPatients_Result" FunctionName="ClinicMVCDbModel.Store.SearchPatients" />
+          <FunctionImportMapping FunctionImportName="Revenue_from_Doctor" FunctionName="ClinicMVCDbModel.Store.Revenue_from_Doctor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClinicMVCDbModel.Revenue_from_Doctor_Result">
+                <ScalarProperty Name="PrescId" ColumnName="PrescId" />
+                <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+                <ScalarProperty Name="Patient" ColumnName="Patient" />
+                <ScalarProperty Name="Medicines" ColumnName="Medicines" />
+                <ScalarProperty Name="LabTest" ColumnName="LabTest" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

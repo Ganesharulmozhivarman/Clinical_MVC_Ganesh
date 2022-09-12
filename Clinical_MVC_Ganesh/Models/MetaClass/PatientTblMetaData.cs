@@ -16,8 +16,12 @@ namespace Clinical_MVC_Ganesh.Models
         [Required]
         public string PatPhone { get; set; }
         [Display(Name = "Gender")]
+        [RegularExpression(@"^(?:male|Male|female|Female)$", ErrorMessage = "Invalid Gender(Enter Only Male or Female)")]
         [Required]
         public string PatGen { get; set; }
+        [Display(Name = "DOB")]
+        [DataType(DataType.Date)]
+        [Required]
         public System.DateTime PatDOB { get; set; }
         [Display(Name = "Address")]
         [Required]

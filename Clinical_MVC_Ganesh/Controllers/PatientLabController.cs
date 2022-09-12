@@ -10,6 +10,7 @@ using Clinical_MVC_Ganesh.Models;
 
 namespace Clinical_MVC_Ganesh.Controllers
 {
+    [Authorize(Roles = "Laboratorian")]
     public class PatientLabController : Controller
     {
         private ClinicMVCDbEntities db = new ClinicMVCDbEntities();

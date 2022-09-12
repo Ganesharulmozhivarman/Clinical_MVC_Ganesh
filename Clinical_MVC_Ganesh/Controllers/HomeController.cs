@@ -8,9 +8,9 @@ namespace Clinical_MVC_Ganesh.Controllers
 {
     public class HomeController : Controller
     {
-        
-        
 
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
@@ -31,6 +31,7 @@ namespace Clinical_MVC_Ganesh.Controllers
 
             return View();
         }
+        [AllowAnonymous]
         public ActionResult HomePage()
         {
             ViewBag.Message = "Your contact page.";
@@ -38,25 +39,34 @@ namespace Clinical_MVC_Ganesh.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Receptionist")]
         public ActionResult Receptionist()
         {
             ViewBag.Message = "Receptionist Page";
 
             return View();
         }
+        [Authorize(Roles = "Laboratorian")]
         public ActionResult Laboratorian()
         {
             ViewBag.Message = "Laboratory page.";
 
             return View();
         }
+        [Authorize(Roles = "Doctor")]
         public ActionResult Doctor()
         {
             ViewBag.Message = "Doctor page.";
 
             return View();
         }
+        //public ActionResult sample()
+        //{
+        //    ViewBag.Message = "sample page.";
+
+        //    return View();
+        //}
+
 
 
     }

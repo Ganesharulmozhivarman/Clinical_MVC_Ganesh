@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>_LetterHead</title>
+</head>
+<body>
+    <div>
+        <img src="~/Assets/Img/SkinCareLetterHead.png" />
+    </div>
+    @RenderBody()
+</body>
+<footer>
+    <p style="color:white">&copy; @DateTime.Now.Year - Ganesh - Madhan Project</p>
+    <img src="~/Assets/Img/SkinCareLetterHead1.png" />
+</footer>
+</html>

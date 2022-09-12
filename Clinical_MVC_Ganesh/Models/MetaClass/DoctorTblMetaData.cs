@@ -33,6 +33,7 @@ namespace Clinical_MVC_Ganesh.Models
         public string DocSpec { get; set; }
 
         [Display(Name = "Gender")]
+        [RegularExpression(@"^(?:male|Male|female|Female)$", ErrorMessage = "Invalid Gender(Enter Only Male or Female)")]
         [Required]
         public string DocGen { get; set; }
 

@@ -14,7 +14,8 @@ namespace Clinical_MVC_Ganesh.Models
         public string TestName { get; set; }
         [Required]
         public int TestCost { get; set; }
-        [Display(Name = "Authorized Person")]
+
+        [Display(Name = "Laboratorian Name")]
         [Required]
         public int AddBy { get; set; }
     }

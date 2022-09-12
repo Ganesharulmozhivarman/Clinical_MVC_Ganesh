@@ -10,6 +10,7 @@ using Clinical_MVC_Ganesh.Models;
 
 namespace Clinical_MVC_Ganesh.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TblLoginsController : Controller
     {
         private ClinicMVCDbEntities db = new ClinicMVCDbEntities();
